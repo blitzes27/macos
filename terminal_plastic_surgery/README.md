@@ -28,6 +28,9 @@ Your terminal will look amazing.![alt text](mac_terminal.png)
 
 ### ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️
 
+### If you dont have git installed you will get a prompt asking you to install command line developer tools. 
+### Accept the prompt ###
+
 ```bash
 cd ~ && bash -c "$(curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/mac_auto_install.sh)"
 ```
