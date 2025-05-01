@@ -36,7 +36,7 @@ sleep 5
 
 # Use AppleScript to update all iTerm2 profiles to use MesloLGS NF
 osascript <<EOF
-tell application "iTerm2"
+tell application "iTerm"
   -- Update fonts in every saved profile
   repeat with p in profiles
     tell p
