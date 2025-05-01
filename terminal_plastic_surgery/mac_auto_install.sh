@@ -84,10 +84,15 @@ brew install eza
 
 echo "[INFO] Installing Sublime Text using Homebrew..."
 brew install --cask sublime-text
+## Fix for Sublime Text not opening after installation
+## This is a workaround for the quarantine attribute that macOS applies to downloaded apps
+sudo xattr -rd com.apple.quarantine "/Applications/Sublime Text.app" || true
 
 echo "[INFO] Installing iTerm2 using Homebrew..."
 brew install --cask iterm2
-
+## Fix for iTerm2 not opening after installation
+## This is a workaround for the quarantine attribute that macOS applies to downloaded apps
+sudo xattr -rd com.apple.quarantine /Applications/iTerm.app || true
 
 
 echo "[INFO] Downloading custom .zshrc from GitHub..."
