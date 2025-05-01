@@ -30,36 +30,3 @@ echo "[INFO] MesloGS Nerd Font installed in $FONT_DIR."
 
 # Open iTerm (launch if not running)
 open -a iTerm
-
-PLIST="$HOME/Library/Preferences/com.googlecode.iterm2.plist"
-
-if [ ! -f "$PLIST" ]; then
-  echo "[ERROR] iTerm preferences not found at $PLIST"
-  exit 1
-fi
-
-# 1. Extract the GUID for the profile named "mesloLGS Nerd Font"
-GUID=$(
-  /usr/libexec/PlistBuddy -c "Print :\"New Bookmarks\"" "$PLIST" \
-  | awk '/Name = MesloLGS Nerd Font/{ getline; print }' \
-  | sed -E 's/ *GUID = (.*);/\1/'
-)
-
-if [ -z "$GUID" ]; then
-  echo "[ERROR] Could not find GUID for MesloLGS Nerd Font profile"
-  exit 1
-fi
-
-# 2. Set it as the default profile
-/usr/libexec/PlistBuddy -c "Set :\"Default Bookmark Guid\" $GUID" "$PLIST"
-
-# 3. Restart iTerm so the change takes effect
-osascript <<EOF
-tell application "iTerm"
-  quit
-  delay 1
-  activate
-end tell
-EOF
-
-echo "[DONE] iTerm default profile set to MesloLGS Nerd Font."

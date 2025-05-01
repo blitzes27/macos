@@ -42,5 +42,4 @@ cd ~ && bash -c "$(curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/
 * **Terminal -> Settings -> Profile -> Text -> Change "@Font" -> Choose any of the Meslo  fonts i like MesloLGS NF**
 
 ### If you use iTerm2 app
-* **The script will auto configure iTerm2 but if it doesnt you can get the icons manually**
 * **iTerm2 -> Preferences -> Profiles -> Text -> Change Font -> Choose any of the Meslo  fonts i like MesloLGS NF**
