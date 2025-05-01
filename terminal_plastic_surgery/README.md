@@ -24,7 +24,7 @@ Your terminal will look amazing.![alt text](mac_terminal.png)
 
 - Configurable update checks, colors, titles, history timestamps, etc.
 
-## To auto install the plastic operation of your ZHS shell please run
+## To auto install the plastic surgery of your ZHS shell please run:
 
 ### ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️ ⚠️ Dont use sudo ⚠️
 
