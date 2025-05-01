@@ -47,6 +47,11 @@ if [ ! -d "$THEME_DIR" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$THEME_DIR"
 fi
 
+echo "[INFO] Installing Powerlevel10k config…"
+curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/.p10k.zsh \
+  -o ~/.p10k.zsh
+
+
 echo "[INFO] Installing Zsh plugins: autosuggestions"
 if [ ! -d "$AUTOSUGGEST_DIR" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions.git "$AUTOSUGGEST_DIR"
@@ -82,6 +87,8 @@ brew install --cask sublime-text
 
 echo "[INFO] Installing iTerm2 using Homebrew..."
 brew install --cask iterm2
+
+
 
 echo "[INFO] Downloading custom .zshrc from GitHub..."
 curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/.zshrc -o "$ZSHRC"
