@@ -28,10 +28,10 @@ rm -rf "${FONT_NAME}_font"
 
 echo "[INFO] MesloGS Nerd Font installed in $FONT_DIR."
 
-# Open iTerm2 (launch if not running)
+# Open iTerm (launch if not running)
 open -a iTerm
 
-# Give iTerm2 a moment to start
+# Give iTerm a moment to start
 sleep 5
 
 # Use AppleScript to update all iTerm2 profiles to use MesloLGS NF
@@ -60,4 +60,4 @@ end tell
 EOF
 
 echo "[DONE] iTerm2 profiles updated to use MesloLGS NF."
-echo "Please restart iTerm2 if you do not see the change immediately."
+echo "Please restart iTerm if you do not see the change immediately."
