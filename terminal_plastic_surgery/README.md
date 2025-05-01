@@ -32,7 +32,14 @@ Your terminal will look amazing.![alt text](mac_terminal.png)
 ### Accept the prompt ###
 
 ```bash
-cd ~ && bash -c "$(curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/mac_auto_install.sh)" && \
-echo 'Done! Don’t forget to source your .zshrc file: source ~/.zshrc'
-
+cd ~ && bash -c "$(curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/mac_auto_install.sh)"
 ```
+**Don’t forget to source your .zshrc file: COMMAND = source ~/.zshrc**
+
+**To be able to see icons in your terminal you need to select NERD FONTS. do so by:**
+
+### If you use Terminal app
+* **Terminal -> Settings -> Profile -> Text -> Change "@Font" -> Choose any of the Meslo  fonts i like MesloLGS NF**
+
+### If you use iTerm2 app
+* **iTerm2 -> Preferences -> Profiles -> Text -> Change Font -> Choose any of the Meslo  fonts i like MesloLGS NF**
