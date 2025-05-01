@@ -31,30 +31,35 @@ echo "[INFO] MesloGS Nerd Font installed in $FONT_DIR."
 # Open iTerm (launch if not running)
 open -a iTerm
 
-# Give iTerm a moment to start
-sleep 5
+PLIST="$HOME/Library/Preferences/com.googlecode.iterm2.plist"
 
-# Use AppleScript to update all iTerm2 profiles to use MesloLGS NF
+if [ ! -f "$PLIST" ]; then
+  echo "[ERROR] iTerm preferences not found at $PLIST"
+  exit 1
+fi
+
+# 1. Extract the GUID for the profile named "mesloLGS Nerd Font"
+GUID=$(
+  /usr/libexec/PlistBuddy -c "Print :\"New Bookmarks\"" "$PLIST" \
+  | awk '/Name = MesloLGS Nerd Font/{ getline; print }' \
+  | sed -E 's/ *GUID = (.*);/\1/'
+)
+
+if [ -z "$GUID" ]; then
+  echo "[ERROR] Could not find GUID for MesloLGS Nerd Font profile"
+  exit 1
+fi
+
+# 2. Set it as the default profile
+/usr/libexec/PlistBuddy -c "Set :\"Default Bookmark Guid\" $GUID" "$PLIST"
+
+# 3. Restart iTerm so the change takes effect
 osascript <<EOF
 tell application "iTerm"
-  -- Iterate through all windows and sessions
-  repeat with w in windows
-    repeat with s in sessions of w
-      tell s
-        set font name to "MesloLGS NF"
-        set font size to 17
-        set non-ascii font name to "MesloLGS NF"
-        set non-ascii font size to 17
-      end tell
-    end repeat
-  end repeat
-
-  -- Quit and relaunch so new defaults stick
   quit
   delay 1
   activate
 end tell
 EOF
 
-echo "[DONE] iTerm2 profiles updated to use MesloLGS NF."
-echo "Please restart iTerm if you do not see the change immediately."
+echo "[DONE] iTerm default profile set to MesloLGS Nerd Font."
