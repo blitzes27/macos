@@ -125,8 +125,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cat='bat'
 alias c='clear'
-ls = 'ls -a'
-ls1 = 'ls -lah'
+alias ls='eza -a --group-directories-first --icons=auto'
+alias ls1='eza -lah --group-directories-first --icons=auto'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
