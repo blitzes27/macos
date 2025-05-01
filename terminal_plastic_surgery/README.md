@@ -2,7 +2,7 @@
 
 Your terminal will look amazing.![alt text](mac_terminal.png)
 
-## Custom Oh My Bash configuration with:
+## Custom Oh My ZHS configuration with:
 
 * Fast, interactive prompt via Oh My ZSH (theme:  font)
 
