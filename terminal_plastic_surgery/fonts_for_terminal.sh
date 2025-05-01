@@ -37,22 +37,19 @@ sleep 5
 # Use AppleScript to update all iTerm2 profiles to use MesloLGS NF
 osascript <<EOF
 tell application "iTerm"
-  -- Update fonts in every saved profile
-  repeat with p in profiles
-    tell p
-      set normal font to "MesloLGS NF"
-      set normal font size to 17
-      set non ascii font to "MesloLGS NF"
-      set non ascii font size to 17
-    end tell
+  -- Iterate through all windows and sessions
+  repeat with w in windows
+    repeat with s in sessions of w
+      tell s
+        set font name to "MesloLGS NF"
+        set font size to 17
+        set non-ascii font name to "MesloLGS NF"
+        set non-ascii font size to 17
+      end tell
+    end repeat
   end repeat
 
-  -- Refresh the current session so changes take effect
-  tell current window
-    select first session
-  end tell
-
-  -- Restart iTerm to apply all changes
+  -- Quit and relaunch so new defaults stick
   quit
   delay 1
   activate
