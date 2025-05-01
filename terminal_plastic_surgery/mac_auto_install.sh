@@ -31,19 +31,31 @@ cd ~
 echo "[INFO] Backing up existing .zshrc if it exists..."
 cp -n "$ZSHRC" "${ZSHRC}.backup" || true
 
+# to prevent the script from running interactively
+export RUNZSH=no
+
+ZSH_CUSTOM_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+THEME_DIR="$ZSH_CUSTOM_DIR/themes/powerlevel10k"
+AUTOSUGGEST_DIR="$ZSH_CUSTOM_DIR/plugins/zsh-autosuggestions"
+SYNTAXHIGHLIGHT_DIR="$ZSH_CUSTOM_DIR/plugins/zsh-syntax-highlighting"
+
 echo "[INFO] Installing Oh My Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 echo "[INFO] Installing Powerlevel10k theme..."
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [ ! -d "$THEME_DIR" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$THEME_DIR"
+fi
 
-echo "[INFO] Installing Zsh plugins: autosuggestions and syntax highlighting..."
-git clone https://github.com/zsh-users/zsh-autosuggestions \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+echo "[INFO] Installing Zsh plugins: autosuggestions"
+if [ ! -d "$AUTOSUGGEST_DIR" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git "$AUTOSUGGEST_DIR"
+fi
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+echo "[INFO] Installing zsh-syntax-highlighting..."
+if [ ! -d "$SYNTAXHIGHLIGHT_DIR" ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$SYNTAXHIGHLIGHT_DIR"
+fi
 
 echo "[INFO] Installing zoxide..."
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
@@ -57,8 +69,19 @@ if ! grep -q '/opt/homebrew/bin' ~/.zprofile 2>/dev/null; then
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+if ! command -v brew >/dev/null 2>&1; then
+  echo "[ERROR] Homebrew not found after installation"
+  exit 1
+fi
+
 echo "[INFO] Installing eza using Homebrew..."
 brew install eza
+
+echo "[INFO] Installing Sublime Text using Homebrew..."
+brew install --cask sublime-text
+
+echo "[INFO] Installing iTerm2 using Homebrew..."
+brew install --cask iterm2
 
 echo "[INFO] Downloading custom .zshrc from GitHub..."
 curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/.zshrc -o "$ZSHRC"
