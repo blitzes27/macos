@@ -32,5 +32,7 @@ Your terminal will look amazing.![alt text](mac_terminal.png)
 ### Accept the prompt ###
 
 ```bash
-cd ~ && bash -c "$(curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/mac_auto_install.sh)"
+cd ~ && bash -c "$(curl -fsSL https://raw.githubusercontent.com/blitzes27/macos/main/terminal_plastic_surgery/mac_auto_install.sh)" && \
+echo 'Done! Don’t forget to source your .zshrc file: source ~/.zshrc'
+
 ```
