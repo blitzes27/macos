@@ -26,7 +26,6 @@ zstyle ':omz:plugins:eza' 'dirs-first' yes #|no
 zstyle ':omz:plugins:eza' 'header' yes #|no
 zstyle ':omz:plugins:eza' 'show-group' yes #|no
 zstyle ':omz:plugins:eza' 'icons' yes #|no
-eval "$(zoxide init zsh)"
 
 # enable the integration with zstyle.
 #zstyle :omz:plugins:iterm2 shell-integration yes

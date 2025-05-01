@@ -1,6 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# check if the script is run as root
+if [ "$EUID" -eq 0 ]; then
+  echo "[ERROR] Do not run this script as root. Exit."
+  exit 1
+fi
+
+# Check if Command Line Tools are installed
+# If not, install them
+echo "[INFO] Checking for Command Line Tools..."
+
+if ! xcode-select -p &>/dev/null; then
+  echo "[INFO] Command Line Tools not found. Launching installer..."
+  xcode-select --install
+
+  echo "[INFO] Waiting for Command Line Tools installation to complete..."
+  while ! xcode-select -p &>/dev/null; do
+    sleep 5
+  done
+
+  echo "[INFO] Command Line Tools installation completed."
+else
+  echo "[INFO] Command Line Tools already installed."
+fi
+
 ZSHRC="$HOME/.zshrc"
 cd ~
 
