@@ -29,7 +29,7 @@ rm -rf "${FONT_NAME}_font"
 echo "[INFO] MesloGS Nerd Font installed in $FONT_DIR."
 
 # Open iTerm2 (launch if not running)
-open -a iTerm2
+open -a iTerm
 
 # Give iTerm2 a moment to start
 sleep 5
