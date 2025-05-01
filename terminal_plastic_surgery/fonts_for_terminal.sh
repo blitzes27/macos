@@ -52,7 +52,7 @@ tell application "iTerm"
     select first session
   end tell
 
-  -- Restart iTerm2 to apply all changes
+  -- Restart iTerm to apply all changes
   quit
   delay 1
   activate
