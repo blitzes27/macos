@@ -1,20 +1,112 @@
-# macOS system files
+# ================================
+# OS-SPECIFIC FILES
+# ================================
+
+# macOS
 .DS_Store
 .AppleDouble
 .LSOverride
-
-# Icon files
-Icon
-
-# Thumbnails
+Icon?
 ._*
 
-# Spotlight search indexing
-.Spotlight-V100
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
 
-# Trash
-.Trashes
+# Linux
+*~
+.nfs*
 
-# Temporary files
+# ================================
+# PYTHON
+# ================================
+
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+env/
+venv/
+ENV/
+.venv/
+.pytest_cache/
+.tox/
+.coverage
+.cache/
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Flask
+instance/
+*.db
+*.sqlite3
+
+# ================================
+# DOCKER
+# ================================
+
+*.log
+docker-compose.override.yml
+.docker/
+docker.env
+*.pid
+
+# Docker volumes and related artifacts
+volume-data/
+*.pidfile
+*.pid
+
+# ================================
+# BASH & POWERSHELL
+# ================================
+
+# History and temp files
+.bash_history
+.bashrc.swp
 *.swp
 *.swo
+*.bak
+*.tmp
+
+# PowerShell
+*.ps1xml
+*.pssc
+*.ps1~
+*.psm1~
+*.psd1~
+*.ps1.swp
+*.ps1.swo
+
+# ================================
+# VISUAL STUDIO CODE
+# ================================
+
+.vscode/
+*.code-workspace
+
+# ================================
+# MISCELLANEOUS
+# ================================
+
+.env
+.env.*
+.secret
+*.pem
+*.key
+*.crt
+*.cert
+*.pfx
+
+# Bytecode and metadata
+*.pyo
+*.pyd
