@@ -125,7 +125,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(zoxide init zsh)"
 alias cd="z"
-alias cat='bat'
+alias cat='bat --style=plain --paging=never'
 alias c='clear'
 alias ls='eza -a --group-directories-first --icons=auto'
 alias ls1='eza -lah --group-directories-first --icons=auto'
