@@ -123,8 +123,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-eval "$(zoxide init zsh)"
-alias cd="z"
+
 alias cat='bat --style=plain --paging=never'
 alias c='clear'
 alias ls='eza -a --group-directories-first --icons=auto'
@@ -133,4 +132,5 @@ alias ls1='eza -lah --group-directories-first --icons=auto'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+eval "$(zoxide init zsh)"
+alias cd="z"
