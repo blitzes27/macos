@@ -1,6 +1,6 @@
 # Directory compare
 
-This script compares all the files in two directories and list the differences like the image below on a HTML page.
+This script compares all the files in two directories, its subdirectories and list the differences like the image below on a HTML page.
 
 ![alt text](image1.png)
 
